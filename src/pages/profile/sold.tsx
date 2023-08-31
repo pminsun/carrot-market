@@ -1,17 +1,14 @@
-import FloatingBtn from "@/components/floating-button";
 import Layout from "@/components/layout";
-import { useRouter } from "next/router";
+import type { NextPage } from "next";
 
-export default function Home() {
-  const router = useRouter();
-
+const Sold: NextPage = () => {
   return (
-    <Layout title="홈" hasTabBar>
+    <Layout canGoBack>
       <div className="flex flex-col space-y-5 py-10">
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
           <div
             key={i}
-            className="flex px-4 border-b pb-4 cursor-pointer justify-between"
+            className="flex px-4  border-b pb-5 cursor-pointer justify-between"
           >
             <div className="flex space-x-4">
               <div className="w-20 h-20 bg-gray-400 rounded-md" />
@@ -24,7 +21,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex space-x-2 items-end justify-end">
-              <div className="flex space-x-0.5 items-center text-sm text-gray-600">
+              <div className="flex space-x-0.5 items-center text-sm  text-gray-600">
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -41,7 +38,7 @@ export default function Home() {
                 </svg>
                 <span>1</span>
               </div>
-              <div className="flex space-x-0.5 items-center text-sm text-gray-600">
+              <div className="flex space-x-0.5 items-center text-sm  text-gray-600">
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -61,8 +58,9 @@ export default function Home() {
             </div>
           </div>
         ))}
-        <FloatingBtn url="/items/upload" />
       </div>
     </Layout>
   );
-}
+};
+
+export default Sold;
