@@ -1,4 +1,5 @@
 import CommonBtn from "@/components/button";
+import Input from "@/components/input";
 import Layout from "@/components/layout";
 import type { NextPage } from "next";
 
@@ -21,34 +22,8 @@ const EditProfile: NextPage = () => {
             />
           </label>
         </div>
-        <div className="space-y-1">
-          <label htmlFor="email" className="text-sm font-medium text-gray-700">
-            Email address
-          </label>
-          <input
-            id="email"
-            type="email"
-            required
-            className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-          />
-        </div>
-        <div className="space-y-1">
-          <label htmlFor="phone" className="text-sm font-medium text-gray-700">
-            phone number
-          </label>
-          <div className="flex rounded-md shadow-sm">
-            <span className="flex items-center justify-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 select-none text-sm">
-              +82
-            </span>
-            <input
-              id="input"
-              type="number"
-              required
-              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md rounded-l-none shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
-            />
-          </div>
-        </div>
-
+        <Input label={"Email address"} kind={"text"} name={"email"} required />
+        <Input label={"phone number"} kind={"phone"} name={"number"} required />
         <CommonBtn btntext=" Update profile" />
       </div>
     </Layout>
