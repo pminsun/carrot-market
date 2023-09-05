@@ -1,5 +1,5 @@
+import { cls } from "@libs/client/utils";
 import { useRouter } from "next/router";
-import { cls } from "../../libs/utils";
 
 interface commonBtnProps {
   btntext: string;
