@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CommonBtn from "@/components/button";
 import Input from "@/components/input";
 import { useForm } from "react-hook-form";
 import useMutation from "@libs/client/useMutation";
 import { cls } from "@libs/client/utils";
+import { useRouter } from "next/router";
 
 interface EnterForm {
   email?: string;
@@ -49,6 +50,13 @@ export default function Enter() {
     if (tokenLoading) return;
     confirmToken(validForm);
   };
+
+  const router = useRouter();
+  useEffect(() => {
+    if (tokenData?.ok) {
+      router.push("/");
+    }
+  }, [router, tokenData]);
 
   console.log(data);
   return (
