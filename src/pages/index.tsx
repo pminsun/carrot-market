@@ -1,13 +1,18 @@
 import FloatingBtn from "@/components/floating-button";
 import Item from "@/components/item";
 import Layout from "@/components/layout";
-import { useRouter } from "next/router";
+import useUser from "@libs/client/useUser";
+import Head from "next/head";
 
 export default function Home() {
-  const router = useRouter();
+  const { user, isLoading } = useUser();
+  console.log("user >>>", user);
 
   return (
     <Layout title="홈" hasTabBar>
+      <Head>
+        <title>Home</title>
+      </Head>
       <div className="flex flex-col space-y-5 py-10 divide-y">
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
           <Item
