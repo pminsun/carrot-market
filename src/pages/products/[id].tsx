@@ -2,8 +2,14 @@ import CommonBtn from "@/components/button";
 import Layout from "@/components/layout";
 import UserShortProfile from "@/components/userShortProfile";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import useSWR from "node_modules/swr/core/dist";
 
 const ItemDetail: NextPage = () => {
+  const router = useRouter();
+  const {} = useSWR(
+    router.query.id ? `/api/products/${router.query.id}` : null
+  );
   return (
     <Layout canGoBack>
       <div className="px-4 py-10">

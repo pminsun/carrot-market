@@ -1,13 +1,17 @@
+import { UseFormRegisterReturn } from "react-hook-form";
+
 interface TextAreaProps {
   label?: string;
   idText?: string;
   placeholderText?: string;
+  register?: UseFormRegisterReturn;
   [key: string]: any;
 }
 
 export default function TextArea({
   label,
   idText,
+  register,
   placeholderText,
   ...rest
 }: TextAreaProps) {
@@ -23,6 +27,7 @@ export default function TextArea({
       ) : null}
       <textarea
         id={idText}
+        {...register}
         className="mt-1 shadow-sm w-full focus:ring-orange-500 rounded-md border-gray-300 focus:border-orange-500 "
         rows={4}
         placeholder={placeholderText}

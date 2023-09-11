@@ -8,8 +8,8 @@ interface commonBtnProps {
 export default function CommonBtn({ btntext }: commonBtnProps) {
   const router = useRouter();
   const addClassName =
-    router.pathname.startsWith("/items/") &&
-    !router.pathname.includes("/items/upload")
+    router.pathname.startsWith("/products/") &&
+    !router.pathname.includes("/products/upload")
       ? "flex-1 py-3"
       : router.pathname === "/enter"
       ? "mt-5 py-2 px-4 border border-transparent  shadow-sm text-sm"

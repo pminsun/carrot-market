@@ -15,7 +15,7 @@ export default function FloatingBtn({ url }: FloatingBtnProps) {
       onClick={onClickMove}
       className="fixed hover:bg-orange-500 transition-colors cursor-pointer bottom-24 right-5 shadow-xl bg-orange-400 rounded-full p-4 text-white"
     >
-      {url === "/items/upload" ? (
+      {url === "/products/upload" ? (
         <svg
           className="h-6 w-6"
           xmlns="http://www.w3.org/2000/svg"
