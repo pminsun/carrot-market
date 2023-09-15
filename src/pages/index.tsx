@@ -4,7 +4,7 @@ import Layout from "@/components/layout";
 import useUser from "@libs/client/useUser";
 import { Product } from "@prisma/client";
 import Head from "next/head";
-import useSWR from "node_modules/swr/core/dist";
+import useSWR from "swr";
 
 interface ProductWithCount extends Product {
   _count: {
