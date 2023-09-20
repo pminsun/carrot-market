@@ -9,58 +9,30 @@ async function handler(
 ) {
   const {
     query: { id },
-    session: { user },
   } = req;
-  const post = await client.post.findUnique({
+
+  const stream = await client.stream.findUnique({
     where: {
       id: Number(id),
     },
     include: {
-      user: {
+      messages: {
         select: {
           id: true,
-          name: true,
-          avatar: true,
-        },
-      },
-      answers: {
-        select: {
-          answer: true,
-          id: true,
+          message: true,
           user: {
             select: {
-              id: true,
-              name: true,
               avatar: true,
+              id: true,
             },
           },
-        },
-        take: 10,
-        skip: 20,
-      },
-      _count: {
-        select: {
-          answers: true,
-          wonderings: true,
         },
       },
     },
   });
-  const isWondering = Boolean(
-    await client.wondering.findFirst({
-      where: {
-        postId: Number(id),
-        userId: user?.id,
-      },
-      select: {
-        id: true,
-      },
-    })
-  );
   res.json({
     ok: true,
-    post,
-    isWondering,
+    stream,
   });
 }
 
