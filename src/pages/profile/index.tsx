@@ -22,7 +22,14 @@ const Profile: NextPage = () => {
     <Layout title="나의 캐럿" hasTabBar>
       <div className="py-10 px-4">
         <div className="flex mb-3 px-4 cursor-pointer pb-3 border-b items-center space-x-3">
-          <div className="w-10 h-10 rounded-full bg-slate-300" />
+          {user?.avatar ? (
+            <img
+              src={`https://imagedelivery.net/4xLchjGowVhnSOqu-JYlfA/${user?.avatar}/avatar`}
+              className="w-10 h-10 rounded-full bg-slate-300"
+            />
+          ) : (
+            <div className="w-10 h-10 rounded-full bg-slate-300" />
+          )}
           <div>
             <p className="text-sm font-medium text-gray-700">{user?.name}</p>
             <Link
