@@ -4,7 +4,9 @@ import Layout from "@/components/layout";
 import useUser from "@libs/client/useUser";
 import { Product } from "@prisma/client";
 import Head from "next/head";
+import Image from "next/image";
 import useSWR from "swr";
+import local from "../../public/local.jpg";
 
 export interface ProductWithCount extends Product {
   _count: {
@@ -22,6 +24,7 @@ export default function Home() {
   const { data } = useSWR<ProductsResponse>("/api/products");
   return (
     <Layout title="홈" hasTabBar>
+      <Image src={local} alt="image" placeholder="blur" quality={10} />
       <Head>
         <title>Home</title>
       </Head>

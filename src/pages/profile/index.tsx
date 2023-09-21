@@ -3,6 +3,7 @@ import useUser from "@libs/client/useUser";
 import { cls } from "@libs/client/utils";
 import { Review, User } from "@prisma/client";
 import type { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 
@@ -23,7 +24,10 @@ const Profile: NextPage = () => {
       <div className="py-10 px-4">
         <div className="flex mb-3 px-4 cursor-pointer pb-3 border-b items-center space-x-3">
           {user?.avatar ? (
-            <img
+            <Image
+              alt="avatarImg"
+              width={48}
+              height={48}
               src={`https://imagedelivery.net/4xLchjGowVhnSOqu-JYlfA/${user?.avatar}/avatar`}
               className="w-10 h-10 rounded-full bg-slate-300"
             />

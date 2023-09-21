@@ -8,6 +8,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import Image from "next/image";
 
 interface UploadProductForm {
   name: string;
@@ -72,7 +73,13 @@ const Upload: NextPage = () => {
           <div>
             <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
               {photoPreview ? (
-                <img src={photoPreview} className="w-full h-full" />
+                <Image
+                  src={photoPreview}
+                  alt="photoPreview"
+                  width={541}
+                  height={189}
+                  className="w-full h-full"
+                />
               ) : (
                 <svg
                   className="h-12 w-12"

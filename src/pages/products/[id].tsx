@@ -5,6 +5,7 @@ import useUser from "@libs/client/useUser";
 import { cls } from "@libs/client/utils";
 import { Product, User } from "@prisma/client";
 import type { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR, { useSWRConfig } from "node_modules/swr/core/dist";
@@ -40,16 +41,23 @@ const ItemDetail: NextPage = () => {
       <div className="px-4 py-10">
         <div className="mb-8">
           {data?.product.image ? (
-            <img
-              src={`https://imagedelivery.net/4xLchjGowVhnSOqu-JYlfA/${data?.product.image}/public`}
-              className="h-96 bg-slate-300 w-full"
-            />
+            <div className="relative pb-80">
+              <Image
+                fill
+                alt="productImg"
+                className="object-cover"
+                src={`https://imagedelivery.net/4xLchjGowVhnSOqu-JYlfA/${data?.product.image}/public`}
+              />
+            </div>
           ) : (
             <div className="h-96 bg-slate-300" />
           )}
-          <div className="flex cursor-pointer py-3 border-t border-b items-center space-x-3">
+          <div className=" flex cursor-pointer py-3 border-t border-b items-center space-x-3">
             {data?.product?.user?.avatar ? (
-              <img
+              <Image
+                alt="avatarImg"
+                width={48}
+                height={48}
                 src={`https://imagedelivery.net/4xLchjGowVhnSOqu-JYlfA/${data?.product?.user?.avatar}/avatar`}
                 className="w-12 h-12 rounded-full bg-slate-300"
               />
